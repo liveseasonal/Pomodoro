@@ -1,0 +1,1 @@
+json.partial! "pomodoroapps/pomodoroapp", pomodoroapp: @pomodoroapp

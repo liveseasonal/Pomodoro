@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  client: MyString
+  date: 2016-09-13 21:45:44
+  projectname: MyString
+
+two:
+  name: MyString
+  client: MyString
+  date: 2016-09-13 21:45:44
+  projectname: MyString

@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @pomodoroapp.name %>
+</p>
+
+<p>
+  <strong>Client:</strong>
+  <%= @pomodoroapp.client %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @pomodoroapp.date %>
+</p>
+
+<p>
+  <strong>Projectname:</strong>
+  <%= @pomodoroapp.projectname %>
+</p>
+
+<p>
+  <strong>Time:</strong>
+  <%= @pomodoroapp.time %>
+</p>
+
+<%= link_to 'Edit', edit_pomodoroapp_path(@pomodoroapp) %> |
+<%= link_to 'Back', pomodoroapps_path %>
