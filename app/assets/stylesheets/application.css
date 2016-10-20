@@ -28,10 +28,17 @@ body{
   font-weight: 100;
 }
 
+.toto{
+  /* position: relative; */
+        display: inline-block;
+        width:25px;
+        height:25px;
+}
+
 .inspiration {
   height: 500px;
   width: 100%;
-  background-image: url('Buenos_Aires_wordpress_copy.jpg') ; 
+  background-image: url('surfer_girl_pomodoro.jpg') ; 
   background-size: cover;
   background-size: 100%;
 }
@@ -50,7 +57,7 @@ body{
 
  .introtag {
   font-size: 40px;
-  color: white;
+  color: #00bf96;
  }
 
  .quote {
@@ -60,7 +67,7 @@ body{
  }
 
 h1{
-  color: #396;
+  color: black;
   font-weight: 100;
   font-size: 40px;
   margin: 40px 0px 20px;
@@ -114,3 +121,47 @@ h1{
   text-align: center;
   margin: 0 auto;
 }
+
+.liveandwork {
+  display: inline-block;
+  height: 40px;
+  width: 100px;
+  margin-left: -800px;
+  margin-top: 20px;
+  border: 2px solid black;
+  border-radius: 20px;
+  text-align: center;
+  color: white;
+  background-color: #00bf96;
+
+}
+
+.travelersandlocals {
+  display: inline-block;
+  height: 40px;
+  width: 100px;
+  margin-left: 40px;
+  margin-top: 20px;
+  border: 2px solid black;
+  border-radius: 20px;
+  text-align: center;
+  color: white;
+  background-color: #00bf96;
+}
+
+.cinegears {
+
+  display: inline-block;
+  height: 40px;
+  width: 100px;
+  margin-left: 80px;
+  margin-top: 20px;
+  border: 2px solid black;
+  border-radius: 20px;
+  text-align: center;
+  color: white;
+  background-color: #00bf96;
+
+}
+
+

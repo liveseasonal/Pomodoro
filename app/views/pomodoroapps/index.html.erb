@@ -15,7 +15,7 @@
 
   <!-- <p id="notice"><%= notice %></p> -->
 
-<body>
+  <body>
     
     <div class="page-container">
 
@@ -66,67 +66,55 @@
       <br>
 
       <div class="records-of-sessions">
-        <h2>Total Work Done</h2>
-        <div class="new-entry">
-          <form action="new_pomodoroapp_path" method="post"> 
-            <br>
-            <h4>Current Project</h4>
-            <br>
-           <input type="date" name="date" placeholder="Date"></input>
-           <br>
-           <br>
-           <input type="text" name="name" placeholder="Client"></input>
-           <br>
-           <br>
-           <input type="text" name="project-name" placeholder="Project-name"></input>
-           <br>
-           <br>
-           <input type="submit" value="Submit">
-           <!-- <a href="#" class="btn-btn-primary">Happy</a> -->
-
-          </form>
-    
-
-         <%= link_to 'New Pomodoroapp', new_pomodoroapp_path %>
-
+        <h2>Total Work Done by Category</h2>
+        <div>
+          <div class="liveandwork"></div>
+          <div class="travelersandlocals"></div>
+          <div class="cinegears"></div>
+          <div class="wordpress"></div>
+          <div class="marketing"></div>
+          <div class="writing"></div>
+          <div class="toto">toto</div>
+          <div class="toto">toto</div>
+          <div class="toto">toto</div>
         </div>
       </div>  
     </div>
 
 
 
-<table class="latestworksessions">
-<h2>Latest Work Sessions</h2>
-<br>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Client</th>
-      <th>Date</th>
-      <th>Projectname</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @pomodoroapps.each do |pomodoroapp| %>
+  <table class="latestworksessions">
+  <h2>Latest Work Sessions</h2>
+  <br>
+    <thead>
       <tr>
-        <td><%= pomodoroapp.name %></td>
-        <td><%= pomodoroapp.client %></td>
-        <td><%= pomodoroapp.date %></td>
-        <td><%= pomodoroapp.projectname %></td>
-        <td><%= pomodoroapp.time %></td>
-        <td><%= link_to 'Show', pomodoroapp %></td>
-        <td><%= link_to 'Edit', edit_pomodoroapp_path(pomodoroapp) %></td>
-        <td><%= link_to 'Destroy', pomodoroapp, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th>Name</th>
+        <th>Client</th>
+        <th>Date</th>
+        <th>Projectname</th>
+        <th colspan="3"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+
+    <tbody>
+      <% @pomodoroapps.each do |pomodoroapp| %>
+        <tr>
+          <td><%= pomodoroapp.name %></td>
+          <td><%= pomodoroapp.client %></td>
+          <td><%= pomodoroapp.date %></td>
+          <td><%= pomodoroapp.projectname %></td>
+          <td><%= pomodoroapp.time %></td>
+          <td><%= link_to 'Show', pomodoroapp %></td>
+          <td><%= link_to 'Edit', edit_pomodoroapp_path(pomodoroapp) %></td>
+          <td><%= link_to 'Destroy', pomodoroapp, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 
 <br>
 
-<%= link_to 'Add Session', new_pomodoroapp_path %>
+    <%= link_to 'Add Session', new_pomodoroapp_path %>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   </body>
