@@ -102,14 +102,17 @@
 <!-- Add a section to record the total work done by category  -->
 
       <div class="records-of-sessions">
-        <h2>Total Work Done by Category</h2>
-        <div>
+        <h1>Total Work Done by Category</h1>
+        <div class= "sessions">
           <div class="liveandwork"></div>
           <div class="travelersandlocals"></div>
           <div class="cinegears"></div>
+        </div>
+        <div class="sessions2">
           <div class="wordpress"></div>
           <div class="marketing"></div>
           <div class="writing"></div>
+        </div>  
         </div>
       </div>  
     <!-- </div> -->
@@ -139,9 +142,9 @@
           <td><%= pomodoroapp.client %></td>
           <!-- <td><%= pomodoroapp.date %></td> -->
           <td><%= pomodoroapp.time %></td> 
-          <td><%= link_to 'Show', pomodoroapp %></td>
-          <td><%= link_to 'Edit', edit_pomodoroapp_path(pomodoroapp) %></td>
-          <td><%= link_to 'Destroy', pomodoroapp, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td class="show"><%= link_to 'Show', pomodoroapp %></td>
+          <td class="btn btn-primary"><%= link_to 'Edit', edit_pomodoroapp_path(pomodoroapp) %></td>
+          <td class="btn btn-danger"><%= link_to 'Destroy', pomodoroapp, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         </tr>
       <% end %>
     </tbody>
@@ -149,8 +152,15 @@
 </div>
 <br>
 
-    <button class="add_session"><%= link_to 'Add Session', new_pomodoroapp_path %></button>
+    <button class="btn btn-default" class="add_session"><%= link_to 'Add Session', new_pomodoroapp_path %></button>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   </body>
 </html>
+
+<!-- 
+//At the end of a pomodoro cycle 
+
+//add the option to click the add session button 
+
+//Add that to your Total work by category. -->

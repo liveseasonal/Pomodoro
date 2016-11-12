@@ -292,6 +292,12 @@ $(document).ready(function(){
   
 });
 
+//At the end of a pomodoro cycle 
+
+//add the option to click the add session button 
+
+//Add that to your Total work by category.
+
 
 
 
