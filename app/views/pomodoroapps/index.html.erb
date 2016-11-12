@@ -5,65 +5,101 @@
     <title>title</title>
     <!-- <link rel="stylesheet" href="application.css"> -->
     <link rel="stylesheets" href="stylesheets/application.css">
-
-    <!-- if I want to add bootsrap to the page then uncomment out this -->
-    <!-- Latest compiled and minified CSS -->
-    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
   </head>
 
   <!-- <p id="notice"><%= notice %></p> -->
 
   <body>
     
-    <div class="page-container">
 
       <div class="inspiration">
-        <div id="clock">Howdy</div>
-        <div class="introtag"><h2> Howdy, Matt</h2></div>
+        <div id="clock"></div>
+        <div class="introtag">
+          <h2> Howdy, Matt</h2>
+        </div>
         <br>
-        <br>
+        <div class="gap_filler"></div>
         <div class="quote">
-          <!-- <button id='quoteGETJSON'>Quote getJSON</button> -->
-          <!-- <button id='quoteAJAX'>Quote ajax</button> -->
-          <div id='quoteAJAX'></div>
+          <strong><div id='quoteAJAX'></div></strong>
           <div id="response"></div>
-          <br>
           <div id="response1"></div>
-          
           <div id="log"></div>
         </div>
       </div>
-      <h1>Pomodoro Countdown</h1>
-      
-      <div id="clockdiv">
-        
-        <div>
-          <span class="days"></span>
-          <div class="smalltext">Days</div>
-        </div>
-        <div>
-          <span class="hours"></span>
-          <div class="smalltext">Hours</div>
-        </div>
-        <div>
-          <span class="minutes"></span>
-          <div class="smalltext">Minutes</div>
-        </div>
-        <div>
-          <span class="seconds"></span>
-          <div class="smalltext">Seconds</div>
-        </div>
-      </div>
-      <br>
-      <br>
+  
 
-      <div class="buttons">
-          <button id="buttonstart" onclick="startClock()">Start</button>
+
+<!-- Add a Pomodoro coutdown section -->
+
+      <div class="pomodoro_countdown">
+        <div class="clockdiv_and_h1">
+          <h1>New challenge and New city</h1>
+          <br />
+          
+          <div id="clockdiv">
+            <div>
+              <span class="days"></span>
+              <div class="smalltext">Days</div>
+            </div>
+            <div>
+              <span class="hours"></span>
+              <div class="smalltext">Hours</div>
+            </div>
+            <div>
+              <span class="minutes"></span>
+              <div class="smalltext">Minutes</div>
+            </div>
+            <div>
+              <span class="seconds"></span>
+              <div class="smalltext">Seconds</div>
+            </div>
+          </div>
+        </div>
+       
+        <br>
+        <br>
+
+          <div class="buttons">
+              <button id="buttonstart" onclick="startClock()">Start</button>
+          </div>
+        <br>
+        <br>
+      </div> 
+
+<!-- Pomodoro take two  -->
+
+     <!-- <div class="pomodoro_builder"> -->
+      <div class="outerClock">
+        <h1>Pomodoro Countdown</h1>
+        <div class="pomodoro_circle">
+          
+          <div id="timeDiv">
+            <!-- <h1>Pomodoro Countdown</h1> -->
+            <br />
+            <h3 class="title_2">Session Time</h3>
+            <a href="#" class="btn btn-default" id="minus5clock">-</a> 
+            <!-- <h2 id="timeType"></h2> -->
+            <h2 id="num">5</h2>
+            <a href="" class="btn btn-default" id="add5clock">+</a> 
+            <a href="#" class="btn btn-danger" id="reset">Reset</a> 
+          </div>
+
+          <div id="breakDiv">
+          <h3 class="title_2">Break Time</h3>
+            <a href="#bottom" class="btn btn-default" id="minus5break">-</a> 
+            <h2 id="breakNum">5</h2>
+            <a href="" class="btn btn-default" id="add5break">+</a> 
+          </div>
+            <br />
+            <a href="#" class="btn btn-default" id="start">Start</a>
+        </div>  
       </div>
-      <br>
-      <br>
+    <!-- </div>  -->
+
+
+
+<!-- Add a section to record the total work done by category  -->
 
       <div class="records-of-sessions">
         <h2>Total Work Done by Category</h2>
@@ -74,24 +110,23 @@
           <div class="wordpress"></div>
           <div class="marketing"></div>
           <div class="writing"></div>
-          <div class="toto">toto</div>
-          <div class="toto">toto</div>
-          <div class="toto">toto</div>
         </div>
       </div>  
-    </div>
+    <!-- </div> -->
 
 
+<!-- Add a section to record the new work session -->
 
+<div class="worksessions">
   <table class="latestworksessions">
   <h2>Latest Work Sessions</h2>
   <br>
     <thead>
       <tr>
-        <th>Name</th>
-        <th>Client</th>
-        <th>Date</th>
         <th>Projectname</th>
+        <!-- <th class="fffff">Name</th>
+ -->        <th>Client</th>
+        <th>Date</th>
         <th colspan="3"></th>
       </tr>
     </thead>
@@ -99,11 +134,11 @@
     <tbody>
       <% @pomodoroapps.each do |pomodoroapp| %>
         <tr>
-          <td><%= pomodoroapp.name %></td>
+          <td class="projectname"><%= pomodoroapp.projectname %></td>
+          <!-- <td class="fffff"><%= pomodoroapp.name %></td> -->
           <td><%= pomodoroapp.client %></td>
-          <td><%= pomodoroapp.date %></td>
-          <td><%= pomodoroapp.projectname %></td>
-          <td><%= pomodoroapp.time %></td>
+          <!-- <td><%= pomodoroapp.date %></td> -->
+          <td><%= pomodoroapp.time %></td> 
           <td><%= link_to 'Show', pomodoroapp %></td>
           <td><%= link_to 'Edit', edit_pomodoroapp_path(pomodoroapp) %></td>
           <td><%= link_to 'Destroy', pomodoroapp, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -111,10 +146,10 @@
       <% end %>
     </tbody>
   </table>
-
+</div>
 <br>
 
-    <%= link_to 'Add Session', new_pomodoroapp_path %>
+    <button class="add_session"><%= link_to 'Add Session', new_pomodoroapp_path %></button>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   </body>

@@ -13,7 +13,10 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require bootstrap-sprockets
 //= require_tree .
+
+
 var deadline = new Date(currentTime + timeInMinutes*60*1000);
 
 
@@ -66,7 +69,7 @@ var timeinterval = setInterval(updateClock,1000);
 }
 
 // // var deadline = new Date(Date.parse(new Date()) + 15 * 24 * 60 * 60 * 1000);
-var timeInMinutes = 25;
+var timeInMinutes = 727200;
 var currentTime = Date.parse(new Date());
 var deadline = new Date(currentTime + timeInMinutes*60*1000);
 // console.log(initializeClock("clockdiv", deadline));
@@ -78,7 +81,7 @@ console.log(getTimeRemaining(deadline).minutes)
 function startClock(){
   console.log(initializeClock("clockdiv", deadline));
   // document.getElementById('buttonstart').innerHTML = 'Stop';
-  $('#buttonstart').hide();
+  $('#buttonstart').html("Stop");
   
     document.getElementById('buttonstart').onclick = function stopClock() {
     document.getElementById('buttonstart').innerHTML = 'Start';
@@ -124,6 +127,10 @@ function displayClock ( )
  // console.log(currentTimeString)
  console.log(currentTime)
 
+
+
+
+
 $(document).ready(function()
 {
    setInterval('displayClock()', 1000);
@@ -154,12 +161,141 @@ function update(response) {
   console.log(response)
 }
 
-console.log(response)
-console.log(log)
+// console.log(response)
+// console.log(log)
 // console.log(quotetext)
 
 
 function handleErr(jqxhr, textStatus, err) {
   console.log("Request Failed: " + textStatus + ", " + err);
 }
+
+
+// jquery
+
+$(document).ready(function(){
+  var count = parseInt($("#num").html());
+  var breakTime = parseInt($("#breakNum").html());
+  // console.log(count)
+  $("#reset").hide();
+  
+  $("#start").click(function(){
+    var counter= setInterval(timer, 1000);
+    count *= 60;
+    breakTime *= 60;
+      
+      
+      
+    
+      function timer(){
+        //Hide variables
+        $("#start, #minus5clock, #add5clock, #add5break, #minus5break, #breakNum, .title_2").hide();
+        $("#timeType").show();
+        $("#timeType").html("Session Time: ")
+        count -= 1;
+        // console.log("Babam!!!")
+        if(count===0){
+          // buzzer.play();
+          clearInterval(counter);
+          var startBreak = setInterval(breakTimer, 1000);
+          $("#num").hide();
+          console.log(count)
+        } 
+        
+        if (count%60 >= 10){
+          $("#num").html(Math.floor(count/60)+ ":" +count%60);
+          console.log(count)
+        }
+        else {
+          $("#num").html(Math.floor(count/60)+":"+ "0" + count%60);
+        }
+          
+ 
+ 
+        
+      // Removed when converting to minutes
+        // $("#num").html(count);
+  
+        function breakTimer() {
+         
+            $("#timeType").html("Break Time!!: ");
+            $("#breakNum").show();
+            $("#timeType").show();
+             
+            breakTime -= 1;
+            
+            if(breakTime===0){
+              clearInterval(startBreak);
+              $("#reset").show();
+              //#timeType this is noted in the video, but cant get it to work for me.
+              // $("#breakNum, #timeType").hide();
+              $("#breakNum").hide();
+            }  
+          
+           if (breakTime%60 >= 10){
+             $("#breakNum").html(Math.floor(breakTime/60)+ ":" +breakTime%60);
+             console.log(count)
+        }
+          else {
+             $("#breakNum").html(Math.floor(breakTime/60)+":"+ "0" + breakTime%60);
+        }
+          
+            $("#breakNum").html(breakTime);
+          }
+       }
+      
+       
+    
+  });  
+  
+  $("#reset").click(function(){
+    count = 25;
+    breakTime = 5;
+    $("#num").html(count);
+    $("#breakNum").html(breakTime);
+    $("#start, #minus5clock, #add5clock, #add5break, #minus5break, #breakNum, #num, .title_2").show();
+    $("#timeType").hide();
+    $("#reset").hide();
+    
+  })
+
+// The error lies in the #num only updating temporaily before reverting back to original number
+
+  $("#minus5clock").click(function(){
+    if(count>5){
+      count -= 5;
+      $("#num").html(count);
+      console.log(count);
+    }  
+  });
+  $("#add5clock").click(function(){
+    if(count<200){
+      count += 5;
+      $("#num").html(count);
+      console.log(count);
+
+    }
+    console.log("add5clock")
+  });
+  $("#minus5break").click(function(){
+    if(breakTime>5){
+      breakTime -= 5;
+      $("#breakNum").html(breakTime);
+      console.log(breakTime);
+    }  
+  });
+  $("#add5break").click(function(){
+      breakTime += 5;
+      $("#breakNum").html(breakTime);
+      console.log(breakTime);
+  });
+  
+});
+
+
+
+
+
+
+
 

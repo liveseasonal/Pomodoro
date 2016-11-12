@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  session: 1
+  client: MyString
+  projectname: MyString
+  time: 1
+
+two:
+  title: MyString
+  session: 1
+  client: MyString
+  projectname: MyString
+  time: 1
