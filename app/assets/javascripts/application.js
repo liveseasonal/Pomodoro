@@ -17,6 +17,7 @@
 //= require_tree .
 
 
+
 var deadline = new Date(currentTime + timeInMinutes*60*1000);
 
 
@@ -297,6 +298,25 @@ $(document).ready(function(){
 //add the option to click the add session button 
 
 //Add that to your Total work by category.
+
+
+
+// Adding a hide button for the longer countdown for new adventure. Needed to add the document.ready to work.
+
+
+
+$(document).ready(function(){
+  $(".hide_adventure_countdown").click(function(){
+    $(".pomodoro_countdown").hide();
+    console.log("Babam!!")
+    $("#adventure_comeback").html("Adventure Check")
+       $("#adventure_comeback").click(function(){
+    // $(".hide_adventure_countdown").show
+        
+         $(".pomodoro_countdown").show();
+       })
+  });
+});
 
 
 
